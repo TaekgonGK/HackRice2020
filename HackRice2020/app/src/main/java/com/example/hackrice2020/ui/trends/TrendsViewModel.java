@@ -1,16 +1,16 @@
-package com.example.hackrice2020.ui.notifications;
+package com.example.hackrice2020.ui.trends;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class TrendsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public TrendsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("This is trends fragment");
     }
 
     public LiveData<String> getText() {

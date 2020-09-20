@@ -13,7 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.hackrice2020.R;
-import com.example.hackrice2020.ui.notifications.NotificationsViewModel;
+import com.example.hackrice2020.ui.trends.TrendsViewModel;
 
 public class SettingsFragment extends Fragment {
     
