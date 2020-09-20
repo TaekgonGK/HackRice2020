@@ -31,8 +31,10 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    LineGraphSeries<DataPoint> series;
-    public List<DataSample> sample = new ArrayList<>();
+    LineGraphSeries<DataPoint> new_cases_series;
+    LineGraphSeries<DataPoint> new_deaths_series;
+    public List<DataSample> new_cases_sample = new ArrayList<>();
+    public List<DataSample> new_deaths_sample = new ArrayList<>();
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -48,32 +50,53 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        readData();
+        readData(2, 4, new_cases_sample);
+        readData(2, 7, new_deaths_sample);
 
-        GraphView graph = (GraphView) root.findViewById(R.id.graph);
-        series = new LineGraphSeries<DataPoint>();
-        graph.getGridLabelRenderer().setVerticalAxisTitle("Population (Billion)");
-        graph.getGridLabelRenderer().setHorizontalAxisTitle("Month");
+
+        GraphView new_cases_graph = (GraphView) root.findViewById(R.id.graph3);
+        GraphView new_deaths_graph = (GraphView) root.findViewById(R.id.graph4);
+
+        new_cases_series = new LineGraphSeries<DataPoint>();
+        new_deaths_series = new LineGraphSeries<DataPoint>();
+
+        new_cases_graph.getGridLabelRenderer().setVerticalAxisTitle("Population (10M)");
+        new_cases_graph.getGridLabelRenderer().setHorizontalAxisTitle("Month");
+        new_deaths_graph.getGridLabelRenderer().setVerticalAxisTitle("Population (10K)");
+        new_deaths_graph.getGridLabelRenderer().setHorizontalAxisTitle("Month");
 
         /**
          *
          */
-        for (int i = 0 ; i < sample.size(); i++) {
-            String date = sample.get(i).getDate();
+        for (int i = 0 ; i < new_cases_sample.size(); i++) {
+            String date = new_cases_sample.get(i).getDate();
             double doubleDate = changeDate(date);
 
-            double total_cases = sample.get(i).getTotalCases() / 100000000.0;
-            series.appendData(new DataPoint(doubleDate, total_cases), true, sample.size());
+            double new_cases = new_cases_sample.get(i).getTotalCases() / 1000000.0;
+            new_cases_series.appendData(new DataPoint(doubleDate, new_cases),
+                    true, new_cases_sample.size());
+
+            double new_deaths = new_deaths_sample.get(i).getTotalCases() / 10000.0;
+            new_deaths_series.appendData(new DataPoint(doubleDate, new_deaths),
+                    true, new_deaths_sample.size());
+
         }
-        graph.addSeries(series);
 
-        graph.getViewport().setMinX(0.9);
-        graph.getViewport().setMaxX(9.5);
-        graph.getViewport().setMinY(0);
-        graph.getViewport().setMaxY(0.4);
+        new_cases_graph.addSeries(new_cases_series);
+        new_cases_graph.getViewport().setMinX(0.9);
+        new_cases_graph.getViewport().setMaxX(9.5);
+        new_cases_graph.getViewport().setMinY(0);
+        new_cases_graph.getViewport().setMaxY(0.4);
+        new_cases_graph.getViewport().setYAxisBoundsManual(true);
+        new_cases_graph.getViewport().setXAxisBoundsManual(true);
 
-        graph.getViewport().setYAxisBoundsManual(true);
-        graph.getViewport().setXAxisBoundsManual(true);
+        new_deaths_graph.addSeries(new_deaths_series);
+        new_deaths_graph.getViewport().setMinX(0.9);
+        new_deaths_graph.getViewport().setMaxX(9.5);
+        new_deaths_graph.getViewport().setMinY(0);
+        new_deaths_graph.getViewport().setMaxY(1.25);
+        new_deaths_graph.getViewport().setYAxisBoundsManual(true);
+        new_deaths_graph.getViewport().setXAxisBoundsManual(true);
 
         return root;
     }
@@ -102,7 +125,7 @@ public class HomeFragment extends Fragment {
     /**
      * @source https://www.youtube.com/watch?v=i-TqNzUryn8
      */
-    private void readData() {
+    private void readData(int date, int data, List  list) {
         InputStream is = getResources().openRawResource(R.raw.data2);
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(is, Charset.forName("UTF-8"))
@@ -118,11 +141,10 @@ public class HomeFragment extends Fragment {
 
                 //read by data
                 DataSample temp = new DataSample();
-                temp.setDate(tokens[2]);
-                temp.setTotalCases(Integer.parseInt(tokens[3]));
-                sample.add(temp);
+                temp.setDate(tokens[date]);
+                temp.setTotalCases(Integer.parseInt(tokens[data]));
+                list.add(temp);
 
-                Log.d("My Activity", "Just Created: " + sample);
             }
         } catch (IOException e) {
             Log.wtf("My Activity", "Error reading data on line " + line, e);
