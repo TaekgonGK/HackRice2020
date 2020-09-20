@@ -24,6 +24,12 @@
         tools:layout="@layout/fragment_trends" />
 
     <fragment
+        android:id="@+id/navigation_links"
+        android:name="com.example.hackrice2020.ui.links.LinksFragment"
+        android:label="@string/title_links"
+        tools:layout="@layout/fragment_links" />
+
+    <fragment
         android:id="@+id/navigation_settings"
         android:name="com.example.hackrice2020.ui.settings.SettingsFragment"
         android:label="@string/title_settings"

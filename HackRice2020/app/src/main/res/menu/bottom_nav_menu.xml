@@ -17,6 +17,11 @@
         android:title="@string/title_trends" />
 
     <item
+        android:id="@+id/navigation_links"
+        android:icon="@drawable/ic_links"
+        android:title="@string/title_links" />
+
+    <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings"
         android:title="@string/title_settings" />

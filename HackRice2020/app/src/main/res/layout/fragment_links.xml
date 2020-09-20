@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".ui.trends.TrendsFragment">
+    tools:context=".ui.links.LinksFragment">
 
     <TextView
-        android:id="@+id/text_trends"
+        android:id="@+id/text_links"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
