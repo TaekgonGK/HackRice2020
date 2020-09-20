@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:layout_height="fill_parent">
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
         <RelativeLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -27,11 +29,10 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="0dp"
                 android:text="COVID-19 TOTAL CASES" />
-
             <com.jjoe64.graphview.GraphView
                 android:layout_width="350dp"
                 android:layout_height="375dp"
-                android:id="@+id/graph"
+                android:id="@+id/graph1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="2dp"
                 tools:ignore="MissingClass,MissingConstraints"
@@ -45,25 +46,61 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="375dp"
                 android:text="COVID-19 TOTAL DEATHS" />
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="350dp"
+                android:layout_height="375dp"
+                android:id="@+id/graph2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="400dp"
+                tools:ignore="MissingClass,MissingConstraints"
+                />
+
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="425dp"
+                android:layout_marginTop="775dp"
                 android:text="COVID-19 NEW CASES" />
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="350dp"
+                android:layout_height="375dp"
+                android:id="@+id/graph3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="800dp"
+                tools:ignore="MissingClass,MissingConstraints"
+                />
 
             <Button
-                android:id="@+id/button4"
+            android:id="@+id/button4"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1200dp"
+            android:text="COVID-19 NEW DEATHS" />
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="350dp"
+                android:layout_height="375dp"
+                android:id="@+id/graph4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="1210dp"
+                tools:ignore="MissingClass,MissingConstraints"
+                />
+
+            <Button
+                android:id="@+id/button5"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="475dp"
-                android:text="COVID-19 NEW DEATHS" />
+                android:layout_marginTop="1600dp" />
+
+
+
 
 
 
         </RelativeLayout>
 
 </ScrollView>
+</LinearLayout>
