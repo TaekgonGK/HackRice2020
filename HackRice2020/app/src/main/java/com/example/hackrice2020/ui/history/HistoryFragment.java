@@ -28,8 +28,6 @@ import com.example.hackrice2020.ui.DataSample;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-import com.example.hackrice2020.R;
-
 public class HistoryFragment extends Fragment {
 
     private HistoryViewModel historyViewModel;
@@ -128,7 +126,6 @@ public class HistoryFragment extends Fragment {
         try {
             reader.readLine();
             while ((line = reader.readLine()) != null) {
-                Log.d("My Activity", "Line: " + line);
                 //split by commas
                 String[] tokens = line.split(",");
 

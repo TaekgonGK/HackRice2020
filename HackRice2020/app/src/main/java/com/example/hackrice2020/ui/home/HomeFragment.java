@@ -135,7 +135,6 @@ public class HomeFragment extends Fragment {
         try {
             reader.readLine();
             while ((line = reader.readLine()) != null) {
-                Log.d("My Activity", "Line: " + line);
                 //split by commas
                 String[] tokens = line.split(",");
 

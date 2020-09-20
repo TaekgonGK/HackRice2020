@@ -69,7 +69,7 @@
                 android:text="Radio Button"
                 android:layout_marginTop="5dp"
                 android:buttonTint="?attr/tintcolor"/>
-            <CheckBox
+            <checkbox
                 android:textColor="?attr/textcolor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
