@@ -28,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        TextView text = (TextView) findViewById(R.id.text_links);
-        text.setMovementMethod(LinkMovementMethod.getInstance());
+
 
     }
 }
