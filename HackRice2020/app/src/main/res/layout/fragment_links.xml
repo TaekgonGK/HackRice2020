@@ -8,46 +8,67 @@
     tools:context=".ui.links.LinksFragment">
 
 
-    <TextView
-        android:id="@+id/text_links"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="@string/linktosite"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageButton
+        android:id="@+id/cdcButton"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:background="@drawable/cdclogo"
+        app:layout_constraintBottom_toTopOf="@+id/whoButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.309" />
+        app:layout_constraintVertical_bias="0.3" />
 
-    <TextView
-        android:id="@+id/text_links1"
-        android:layout_width="match_parent"
-        android:layout_height="29dp"
-        android:text="@string/linktosite1"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <ImageButton
+        android:id="@+id/whoButton"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:background="@drawable/who"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.405" />
+        app:layout_constraintVertical_bias="0.42"/>
 
-    <TextView
-        android:id="@+id/text_links2"
-        android:layout_width="match_parent"
-        android:layout_height="63dp"
-        android:text="@string/linktosite2"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <ImageButton
+        android:id="@+id/jhButton"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:background="@drawable/jh"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintTop_toBottomOf="@+id/whoButton"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <!--
+        <TextView
+            android:id="@+id/text_links1"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:text="@string/linktosite1"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.405" />
+
+        <TextView
+            android:id="@+id/text_links2"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:text="@string/linktosite2"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.8" /> -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
