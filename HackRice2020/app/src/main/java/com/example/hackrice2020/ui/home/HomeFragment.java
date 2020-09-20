@@ -31,12 +31,8 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    LineGraphSeries<DataPoint> total_cases_series;
-    LineGraphSeries<DataPoint> total_deaths_series;
     LineGraphSeries<DataPoint> new_cases_series;
     LineGraphSeries<DataPoint> new_deaths_series;
-    public List<DataSample> total_cases_sample = new ArrayList<>();
-    public List<DataSample> total_deaths_sample = new ArrayList<>();
     public List<DataSample> new_cases_sample = new ArrayList<>();
     public List<DataSample> new_deaths_sample = new ArrayList<>();
 
@@ -54,67 +50,37 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        readData(2, 3, total_cases_sample);
-        readData(2, 6, total_deaths_sample);
         readData(2, 4, new_cases_sample);
         readData(2, 7, new_deaths_sample);
 
-        GraphView total_cases_graph = (GraphView) root.findViewById(R.id.graph1);
-        GraphView total_deaths_graph = (GraphView) root.findViewById(R.id.graph2);
+
         GraphView new_cases_graph = (GraphView) root.findViewById(R.id.graph3);
         GraphView new_deaths_graph = (GraphView) root.findViewById(R.id.graph4);
-        total_cases_series = new LineGraphSeries<DataPoint>();
-        total_deaths_series = new LineGraphSeries<DataPoint>();
+
         new_cases_series = new LineGraphSeries<DataPoint>();
         new_deaths_series = new LineGraphSeries<DataPoint>();
-        total_cases_graph.getGridLabelRenderer().setVerticalAxisTitle("Population (Billion)");
-        total_cases_graph.getGridLabelRenderer().setHorizontalAxisTitle("Month");
-        total_deaths_graph.getGridLabelRenderer().setVerticalAxisTitle("Population (10M)");
-        total_deaths_graph.getGridLabelRenderer().setHorizontalAxisTitle("Month");
+
         new_cases_graph.getGridLabelRenderer().setVerticalAxisTitle("Population (10M)");
         new_cases_graph.getGridLabelRenderer().setHorizontalAxisTitle("Month");
-        new_deaths_graph.getGridLabelRenderer().setVerticalAxisTitle("Population (10M)");
+        new_deaths_graph.getGridLabelRenderer().setVerticalAxisTitle("Population (10K)");
         new_deaths_graph.getGridLabelRenderer().setHorizontalAxisTitle("Month");
-        //implement axis labels later
 
         /**
          *
          */
-        for (int i = 0 ; i < total_cases_sample.size(); i++) {
-            String date = total_cases_sample.get(i).getDate();
+        for (int i = 0 ; i < new_cases_sample.size(); i++) {
+            String date = new_cases_sample.get(i).getDate();
             double doubleDate = changeDate(date);
-            double total_cases = total_cases_sample.get(i).getTotalCases() / 100000000.0;
-            total_cases_series.appendData(new DataPoint(doubleDate, total_cases),
-                    true, total_cases_sample.size());
-
-            double total_deaths = total_deaths_sample.get(i).getTotalCases() / 1000000.0;
-            total_deaths_series.appendData(new DataPoint(doubleDate, total_deaths),
-                    true, total_deaths_sample.size());
 
             double new_cases = new_cases_sample.get(i).getTotalCases() / 1000000.0;
             new_cases_series.appendData(new DataPoint(doubleDate, new_cases),
                     true, new_cases_sample.size());
 
-            double new_deaths = new_deaths_sample.get(i).getTotalCases() / 1000000.0;
-            new_deaths_series.appendData(new DataPoint(doubleDate, total_deaths),
+            double new_deaths = new_deaths_sample.get(i).getTotalCases() / 10000.0;
+            new_deaths_series.appendData(new DataPoint(doubleDate, new_deaths),
                     true, new_deaths_sample.size());
 
         }
-        total_cases_graph.addSeries(total_cases_series);
-        total_cases_graph.getViewport().setMinX(0.9);
-        total_cases_graph.getViewport().setMaxX(9.5);
-        total_cases_graph.getViewport().setMinY(0);
-        total_cases_graph.getViewport().setMaxY(0.4);
-        total_cases_graph.getViewport().setYAxisBoundsManual(true);
-        total_cases_graph.getViewport().setXAxisBoundsManual(true);
-
-        total_deaths_graph.addSeries(total_deaths_series);
-        total_deaths_graph.getViewport().setMinX(0.9);
-        total_deaths_graph.getViewport().setMaxX(9.5);
-        total_deaths_graph.getViewport().setMinY(0);
-        total_deaths_graph.getViewport().setMaxY(1.0);
-        total_deaths_graph.getViewport().setYAxisBoundsManual(true);
-        total_deaths_graph.getViewport().setXAxisBoundsManual(true);
 
         new_cases_graph.addSeries(new_cases_series);
         new_cases_graph.getViewport().setMinX(0.9);
@@ -128,12 +94,9 @@ public class HomeFragment extends Fragment {
         new_deaths_graph.getViewport().setMinX(0.9);
         new_deaths_graph.getViewport().setMaxX(9.5);
         new_deaths_graph.getViewport().setMinY(0);
-        new_deaths_graph.getViewport().setMaxY(1.0);
+        new_deaths_graph.getViewport().setMaxY(1.25);
         new_deaths_graph.getViewport().setYAxisBoundsManual(true);
         new_deaths_graph.getViewport().setXAxisBoundsManual(true);
-
-//new cases: token 10
-        //new deaths: token 14
 
         return root;
     }
