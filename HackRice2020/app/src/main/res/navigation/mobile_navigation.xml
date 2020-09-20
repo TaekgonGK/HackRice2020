@@ -18,10 +18,10 @@
         tools:layout="@layout/fragment_history" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.hackrice2020.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_trends"
+        android:name="com.example.hackrice2020.ui.trends.TrendsFragment"
+        android:label="@string/title_trends"
+        tools:layout="@layout/fragment_trends" />
 
     <fragment
         android:id="@+id/navigation_settings"
