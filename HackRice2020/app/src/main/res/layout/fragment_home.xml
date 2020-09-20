@@ -5,13 +5,11 @@
     android:layout_height="fill_parent">
 <ScrollView
     android:layout_width="fill_parent"
-<<<<<<< HEAD
     android:layout_height="fill_parent">
-=======
     android:layout_height="fill_parent"
     android:background="#000000"
     android:orientation="vertical" >
->>>>>>> 429cc6f782a42bdf79f4d3fa5f5b9386f3b9a334
+
         <RelativeLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
