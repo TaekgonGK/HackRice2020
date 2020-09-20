@@ -22,4 +22,18 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Links -->
+    <string name="linktosite">
+        <a href="https://www.cdc.gov/">Click For More Information by the CDC</a>
+    </string>
+
+    <string name="linktosite1">
+        <a href="https://www.who.int/">Click For More Information by the WHO</a>
+    </string>
+
+    <string name="linktosite2">
+        <a href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus">Click For More Information by Johns Hopkins</a>
+    </string>
+
 </resources>
