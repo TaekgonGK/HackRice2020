@@ -8,31 +8,28 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.hackrice2020.R;
-import com.example.hackrice2020.ui.trends.TrendsViewModel;
 
-public class SettingsFragment extends AppCompatDelegate {
-    private Switch myswitch;
+public class SettingsFragment extends Fragment {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            setTheme(R.style.darktheme);
-        } else {
-            setTheme(R.style.AppTheme);
-        }
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_settings);
-        myswitch=(Switch)findViewById(R.id.myswitch);
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            myswitch.setChecked(true);
-        }
-        myswitch.setOnChecked
+    private SettingsViewModel settingsViewModel;
+
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        settingsViewModel =
+                ViewModelProviders.of(this).get(SettingsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_settings, container, false);
+        final TextView textView = root.findViewById(R.id.text_settings);
+        settingsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                textView.setText(s);
+            }
+        });
+        return root;
     }
 }

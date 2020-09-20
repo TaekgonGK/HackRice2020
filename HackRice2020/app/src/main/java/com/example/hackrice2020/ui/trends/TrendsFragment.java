@@ -31,5 +31,5 @@ public class TrendsFragment extends Fragment {
             }
         });
         return root;
-    }
+}
 }
