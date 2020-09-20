@@ -4,12 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< Updated upstream:HackRice2020/app/src/main/res/layout/fragment_trends.xml
-    tools:context=".ui.trends.TrendsFragment">
-=======
     android:background="#000000"
     tools:context=".ui.notifications.NotificationsFragment">
->>>>>>> Stashed changes:HackRice2020/app/src/main/res/layout/fragment_notifications.xml
 
     <TextView
         android:id="@+id/text_trends"
