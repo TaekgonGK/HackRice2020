@@ -37,4 +37,6 @@
         <a href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus">Click For More Information by Johns Hopkins</a>
     </string>
 
+    <!-- Trends -->
+    <string name="trends">Trends</string>
 </resources>
