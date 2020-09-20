@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-=======
     android:background="#ffffff"
->>>>>>> 0d3235ab0ebaebcfc95e85c050968d878e567d29
     tools:context=".ui.links.LinksFragment">
 
     <TextView
