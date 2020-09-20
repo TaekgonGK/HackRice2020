@@ -1,6 +1,7 @@
 package com.example.hackrice2020.ui.links;
 
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,15 +24,20 @@ public class LinksFragment extends Fragment{
         linksViewModel =
                 ViewModelProviders.of(this).get(LinksViewModel.class);
         View root = inflater.inflate(R.layout.fragment_links, container, false);
-        final TextView textView = root.findViewById(R.id.text_links);
         linksViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
             }
         });
 
+        TextView text = (TextView) root.findViewById(R.id.text_links);
+        text.setMovementMethod(LinkMovementMethod.getInstance());
 
+        text = (TextView) root.findViewById(R.id.text_links1);
+        text.setMovementMethod(LinkMovementMethod.getInstance());
+
+        text = (TextView) root.findViewById(R.id.text_links2);
+        text.setMovementMethod(LinkMovementMethod.getInstance());
 
 
 
